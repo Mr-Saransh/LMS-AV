@@ -31,13 +31,21 @@ export const usePayment = () => {
         }
 
         try {
-            const data = await fetch('/api/razorpay', {
+            const response = await fetch('/api/razorpay', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({ amount }),
-            }).then((t) => t.json());
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                console.error("Order creation failed:", data);
+                alert(`Payment initialization failed: ${data.error || 'Unknown error'}`);
+                return;
+            }
 
             const options = {
                 key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'rzp_test_1234567890',

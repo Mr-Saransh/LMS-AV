@@ -1,12 +1,23 @@
 import { NextResponse } from 'next/server';
 import Razorpay from 'razorpay';
 
-const razorpay = new Razorpay({
-    key_id: process.env.RAZORPAY_KEY_ID || 'rzp_test_1234567890', // Mock/Env key
-    key_secret: process.env.RAZORPAY_KEY_SECRET || 'mock_secret',
-});
-
 export async function POST(request: Request) {
+    const key_id = process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID;
+    const key_secret = process.env.RAZORPAY_KEY_SECRET;
+
+    if (!key_id || !key_secret) {
+        console.error("Razorpay Error: Missing environment variables.");
+        return NextResponse.json(
+            { error: 'Server misconfiguration: Missing Razorpay keys.' },
+            { status: 500 }
+        );
+    }
+
+    const razorpay = new Razorpay({
+        key_id: key_id,
+        key_secret: key_secret,
+    });
+
     try {
         const { amount } = await request.json();
 
@@ -20,7 +31,7 @@ export async function POST(request: Request) {
     } catch (error) {
         console.error('Error creating order:', error);
         return NextResponse.json(
-            { error: 'Error creating order' },
+            { error: 'Error creating order found' },
             { status: 500 }
         );
     }
