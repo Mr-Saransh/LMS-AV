@@ -11,9 +11,9 @@ export default function Footer() {
                     <div className="col-span-1 md:col-span-1">
                         <div className="flex items-center gap-2 mb-6">
                             <Image
-                                src="/logo.png"
+                                src="/logo-new.png"
                                 alt="Apni Vidya"
-                                width={180}
+                                width={60}
                                 height={60}
                                 className="h-12 w-auto object-contain bg-white rounded-lg p-1"
                             />

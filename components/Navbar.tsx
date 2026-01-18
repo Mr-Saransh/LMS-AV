@@ -17,12 +17,13 @@ export default function Navbar() {
                     <div className="flex">
                         <div className="flex-shrink-0 flex items-center gap-2 group cursor-pointer">
                             <Image
-                                src="/logo.png"
+                                src="/logo-new.png"
                                 alt="Apni Vidya"
-                                width={180}
-                                height={60}
+                                width={50}
+                                height={50}
                                 className="h-12 w-auto object-contain"
                             />
+                            <span className="font-extrabold text-3xl tracking-tight transition-colors font-outfit" style={{ color: '#2b54bc' }}>Apni Vidya</span>
                         </div>
                     </div>
 
