@@ -62,13 +62,13 @@ export default function MainOffer() {
                             <Zap className="h-12 w-12 text-yellow-300 mb-4" />
                             <div className="flex items-baseline gap-1 mb-2">
                                 <span className="text-2xl font-medium opacity-80">$</span>
-                                <span className="text-5xl font-extrabold">100</span>
+                                <span className="text-5xl font-extrabold">1</span>
                                 <span className="text-xl opacity-80">/mo</span>
                             </div>
                             <p className="text-indigo-100 mb-8">Billed annually at $1200</p>
 
                             <button
-                                onClick={() => handlePayment(100, "All-in-One Skill Mastery")}
+                                onClick={() => handlePayment(1, "All-in-One Skill Mastery")}
                                 disabled={loading}
                                 className="w-full bg-white text-indigo-700 py-4 rounded-xl font-bold text-lg hover:bg-indigo-50 transition-colors shadow-lg disabled:opacity-75"
                             >

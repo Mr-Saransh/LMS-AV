@@ -9,7 +9,7 @@ export default function CourseGrid() {
     const courses = [
         {
             title: "Personality Development",
-            price: "$500",
+            price: "$1",
             icon: (
                 <video
                     src="https://cdnl.iconscout.com/lottie/premium/thumb/personality-development-growth-animation-gif-download-11825159.mp4"
@@ -25,7 +25,7 @@ export default function CourseGrid() {
         },
         {
             title: "Computer with AI",
-            price: "$500",
+            price: "$1",
             icon: (
                 <video
                     src="https://cdnl.iconscout.com/lottie/premium/thumb/hand-with-ai-chip-animation-gif-download-11578688.mp4"
@@ -41,7 +41,7 @@ export default function CourseGrid() {
         },
         {
             title: "Coding Basics",
-            price: "$500",
+            price: "$1",
             icon: (
                 <video
                     src="https://cdnl.iconscout.com/lottie/premium/thumb/coding-animation-gif-download-8860652.mp4"
@@ -57,7 +57,7 @@ export default function CourseGrid() {
         },
         {
             title: "Cyber Security",
-            price: "$500",
+            price: "$1",
             icon: (
                 <video
                     src="https://cdnl.iconscout.com/lottie/premium/thumb/cyber-security-animation-gif-download-5553286.mp4"
@@ -73,7 +73,7 @@ export default function CourseGrid() {
         },
         {
             title: "Financial Literacy",
-            price: "$500",
+            price: "$1",
             icon: (
                 <video
                     src="https://cdnl.iconscout.com/lottie/premium/thumb/financial-literacy-animation-gif-download-10720478.mp4"
@@ -120,7 +120,7 @@ export default function CourseGrid() {
                                 <div className="flex items-center justify-between pt-4 mt-auto border-t border-slate-50">
                                     <span className="text-2xl font-bold text-slate-900">{course.price}</span>
                                     <button
-                                        onClick={() => handlePayment(500, course.title)}
+                                        onClick={() => handlePayment(1, course.title)}
                                         disabled={loading}
                                         className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-blue-200 flex items-center gap-2 disabled:opacity-70 disabled:hover:shadow-none"
                                     >

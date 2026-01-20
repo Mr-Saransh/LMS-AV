@@ -60,6 +60,10 @@ export const usePayment = () => {
                     window.open('https://chat.whatsapp.com/Kjd64mv4bJuAY4TrnvaoyI', '_blank');
                     // Verify payment on backend here
                 },
+                notes: {
+                    courseName: courseName,
+                    customerName: 'Student', // Ideally this would come from a form
+                },
                 prefill: {
                     name: 'Student Name',
                     email: 'student@example.com',

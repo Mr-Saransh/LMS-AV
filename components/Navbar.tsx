@@ -33,7 +33,7 @@ export default function Navbar() {
                         <Link href="#courses" className="text-slate-600 hover:text-blue-600 font-bold transition-all hover:-translate-y-0.5">Courses</Link>
                         <Link href="#about" className="text-slate-600 hover:text-blue-600 font-bold transition-all hover:-translate-y-0.5">Why Us?</Link>
                         <button
-                            onClick={() => handlePayment(100, "All-in-One Skill Mastery")}
+                            onClick={() => handlePayment(1, "All-in-One Skill Mastery")}
                             disabled={loading}
                             className="bg-slate-900 text-white px-6 py-2.5 rounded-full font-bold hover:bg-blue-600 transition-all shadow-lg active:scale-95 disabled:opacity-70"
                         >
@@ -62,7 +62,7 @@ export default function Navbar() {
                         <Link href="#about" onClick={() => setIsOpen(false)} className="block px-4 py-3 text-slate-600 hover:text-blue-600 font-bold rounded-xl hover:bg-blue-50 transition-colors">Why Us?</Link>
                         <div className="pt-4">
                             <button
-                                onClick={() => handlePayment(100, "All-in-One Skill Mastery")}
+                                onClick={() => handlePayment(1, "All-in-One Skill Mastery")}
                                 disabled={loading}
                                 className="w-full bg-blue-600 text-white px-6 py-4 rounded-xl font-bold hover:bg-blue-700 transition-colors shadow-lg disabled:opacity-70"
                             >

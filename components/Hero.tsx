@@ -37,11 +37,11 @@ export default function Hero() {
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <button
-                                onClick={() => handlePayment(100, "Live Classes Combo")}
+                                onClick={() => handlePayment(1, "Live Classes Combo")}
                                 disabled={loading}
                                 className="group w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-lg shadow-xl shadow-blue-600/20 transition-all hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-70"
                             >
-                                {loading ? "Processing..." : "Enroll Now for $100"} <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                                {loading ? "Processing..." : "Enroll Now for $1"} <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                             </button>
 
                         </div>
@@ -91,6 +91,6 @@ export default function Hero() {
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
