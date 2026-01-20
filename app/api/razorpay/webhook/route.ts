@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server";
+export const dynamic = 'force-dynamic';
 import crypto from "crypto";
 import { Resend } from "resend";
 import ReceiptEmail from "@/components/emails/ReceiptEmail";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
+    const resend = new Resend(process.env.RESEND_API_KEY);
     try {
         const body = await req.text();
         const signature = req.headers.get("x-razorpay-signature");
