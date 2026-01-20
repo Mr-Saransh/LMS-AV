@@ -59,13 +59,20 @@ export const usePayment = () => {
             return;
         }
 
+        // Detect if user is in India (more robust check)
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const isIndia = tz === 'Asia/Kolkata' || tz === 'Asia/Calcutta';
+        const currency = isIndia ? 'INR' : 'USD';
+
+        console.log(`Payment detection: Timezone=${tz}, Selected Currency=${currency}`);
+
         try {
             const response = await fetch('/api/razorpay', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ amount }),
+                body: JSON.stringify({ amount, currency }),
             });
 
             const data = await response.json();
@@ -76,10 +83,10 @@ export const usePayment = () => {
                 return;
             }
 
-            const options = {
+            const options: RazorpayOptions = {
                 key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID || 'rzp_test_1234567890',
-                amount: amount * 100, // Amount in cents/paise
-                currency: 'USD',
+                amount: data.amount * 100, // Use the amount returned by the server (converted if INR)
+                currency: data.currency,
                 name: 'Apni Vidya',
                 description: `Enrollment for ${courseName}`,
                 order_id: data.orderId,

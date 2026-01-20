@@ -20,15 +20,26 @@ export async function POST(request: Request) {
     });
 
     try {
-        const { amount } = await request.json();
+        const { amount, currency = 'USD' } = await request.json();
+
+        // If currency is INR, we convert the USD amount (e.g. $1 -> ₹85)
+        // You can adjust this conversion rate as needed.
+        let finalAmount = amount;
+        if (currency === 'INR') {
+            finalAmount = amount * 85;
+        }
 
         const order = await razorpay.orders.create({
-            amount: amount * 100, // Amount in smallest currency unit
-            currency: 'USD',
+            amount: Math.round(finalAmount * 100), // Amount in smallest currency unit (cents or paise)
+            currency: currency,
             receipt: 'receipt_' + Math.random().toString(36).substring(7),
         });
 
-        return NextResponse.json({ orderId: order.id }, { status: 200 });
+        return NextResponse.json({
+            orderId: order.id,
+            currency: currency,
+            amount: finalAmount
+        }, { status: 200 });
     } catch (error) {
         console.error('Error creating order:', error);
         return NextResponse.json(
