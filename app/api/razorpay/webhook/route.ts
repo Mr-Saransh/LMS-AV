@@ -35,7 +35,7 @@ export async function POST(req: Request) {
 
         if (event === "payment.captured") {
             const payment = payload.payload.payment.entity;
-            const order_id = payment.order_id;
+            // const order_id = payment.order_id;
             const amount = payment.amount / 100; // in dollars
             const email = payment.email;
             const notes = payment.notes || {};

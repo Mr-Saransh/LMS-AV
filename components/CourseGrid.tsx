@@ -1,6 +1,6 @@
 'use client';
 
-import { Brain, Cpu, Terminal, ShieldCheck, TrendingUp, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { usePayment } from '@/hooks/usePayment';
 
 export default function CourseGrid() {

@@ -1,9 +1,38 @@
 import { useState } from 'react';
 
+interface RazorpayOptions {
+    key: string;
+    amount: number;
+    currency: string;
+    name: string;
+    description: string;
+    order_id: string;
+    handler: (response: {
+        razorpay_payment_id: string;
+        razorpay_order_id: string;
+        razorpay_signature: string;
+    }) => void;
+    notes: {
+        courseName: string;
+        customerName: string;
+    };
+    prefill: {
+        name: string;
+        email: string;
+        contact: string;
+    };
+    theme: {
+        color: string;
+    };
+}
+
+interface RazorpayInstance {
+    open: () => void;
+}
+
 declare global {
     interface Window {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        Razorpay: any;
+        Razorpay: new (options: RazorpayOptions) => RazorpayInstance;
     }
 }
 
@@ -54,8 +83,7 @@ export const usePayment = () => {
                 name: 'Apni Vidya',
                 description: `Enrollment for ${courseName}`,
                 order_id: data.orderId,
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                handler: function (response: any) {
+                handler: function (response: { razorpay_payment_id: string; razorpay_order_id: string; razorpay_signature: string }) {
                     alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}. Redirecting to WhatsApp Group...`);
                     window.open('https://chat.whatsapp.com/Kjd64mv4bJuAY4TrnvaoyI', '_blank');
                     // Verify payment on backend here

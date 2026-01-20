@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight, Video, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { usePayment } from '@/hooks/usePayment';
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
