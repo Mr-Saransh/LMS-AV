@@ -8,17 +8,17 @@ export default function Hero() {
     const { handlePayment, loading } = usePayment();
 
     return (
-        <div id="home" className="relative bg-gradient-to-br from-slate-50 via-blue-50 to-white pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
+        <div id="home" className="relative bg-gradient-to-br from-slate-50 via-blue-50/50 to-white pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden font-outfit">
             {/* Background decoration */}
-            <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-50 animate-pulse"></div>
-            <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-indigo-100 rounded-full blur-3xl opacity-50"></div>
+            <div className="absolute top-0 right-0 -mr-20 -mt-20 w-[30rem] h-[30rem] bg-blue-200/40 rounded-full blur-[100px] opacity-70 animate-pulse-slow"></div>
+            <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-[25rem] h-[25rem] bg-indigo-200/40 rounded-full blur-[100px] opacity-70 animate-pulse-slow" style={{ animationDelay: '1.5s' }}></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
                 <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
 
                     {/* Left Content */}
                     <div className="lg:w-1/2 text-center lg:text-left z-10 order-2 lg:order-1">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100/50 border border-blue-200 text-blue-700 font-semibold text-sm mb-8 animate-fade-in-up hover:bg-blue-100 transition-colors cursor-default">
+                        <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/80 border border-blue-100 text-blue-700 font-bold text-sm mb-8 animate-fade-in-up hover:bg-white transition-all shadow-sm hover:shadow-md cursor-default backdrop-blur-sm">
                             <span className="relative flex h-3 w-3">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-500"></span>
@@ -26,63 +26,64 @@ export default function Hero() {
                             Live Admissions Open 2026
                         </div>
 
-                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
+                        <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-slate-900 tracking-tight mb-8 leading-[1.1]">
                             Master Skills with <br className="hidden lg:block" />
-                            <span className="text-white bg-blue-600 px-2 rounded-lg transform -skew-x-6 inline-block">IITian Guides</span>
+                            <span className="relative inline-block mt-2 lg:mt-0">
+                                <span className="absolute inset-0 bg-blue-600 transform -skew-x-6 rounded-lg shadow-lg shadow-blue-200 z-0"></span>
+                                <span className="relative text-white px-4 z-10">IITian Guides</span>
+                            </span>
                         </h1>
 
-                        <p className="text-lg text-slate-600 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                        <p className="text-lg sm:text-xl text-slate-600 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
                             Apni Vidya offers live, interactive classes for school students. Learn real-world skills directly from the experts, not just recorded videos.
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                             <button
-                                onClick={() => handlePayment(1, "Live Classes Combo")}
+                                onClick={() => handlePayment(149, "Live Classes Combo")}
                                 disabled={loading}
-                                className="group w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-lg shadow-xl shadow-blue-600/20 transition-all hover:scale-105 flex items-center justify-center gap-2 disabled:opacity-70"
+                                className="group w-full sm:w-auto px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-bold text-lg shadow-xl shadow-blue-600/30 transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3 disabled:opacity-70 border border-blue-500"
                             >
-                                {loading ? "Processing..." : "Enroll Now for $1"} <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                                {loading ? "Processing..." : "Enroll Now for $149"}
+                                <span className="bg-white/20 rounded-full p-1 group-hover:translate-x-1 transition-transform">
+                                    <ArrowRight className="h-5 w-5" />
+                                </span>
                             </button>
-
                         </div>
 
-                        <div className="mt-12 flex items-center justify-center lg:justify-start gap-8 text-sm text-slate-500">
-                            <div className="flex flex-col items-center lg:items-start group cursor-pointer">
-                                <span className="font-bold text-2xl text-slate-900 group-hover:text-blue-600 transition-colors">10k+</span>
-                                <span>Students</span>
-                            </div>
-                            <div className="w-px h-10 bg-slate-200"></div>
-                            <div className="flex flex-col items-center lg:items-start group cursor-pointer">
-                                <span className="font-bold text-2xl text-slate-900 group-hover:text-blue-600 transition-colors">50+</span>
-                                <span>Mentors</span>
-                            </div>
-                            <div className="w-px h-10 bg-slate-200"></div>
-                            <div className="flex flex-col items-center lg:items-start group cursor-pointer">
-                                <span className="font-bold text-2xl text-slate-900 group-hover:text-blue-600 transition-colors">4.9/5</span>
-                                <span>Rating</span>
-                            </div>
+                        <div className="mt-14 flex items-center justify-center lg:justify-start gap-8 sm:gap-12">
+                            {[
+                                { val: "10k+", label: "Students" },
+                                { val: "50+", label: "Mentors" },
+                                { val: "4.9/5", label: "Rating" }
+                            ].map((stat, idx) => (
+                                <div key={idx} className="flex flex-col items-center lg:items-start group cursor-pointer">
+                                    <span className="font-extrabold text-3xl text-slate-900 group-hover:text-blue-600 transition-colors drop-shadow-sm">{stat.val}</span>
+                                    <span className="text-sm text-slate-500 font-semibold">{stat.label}</span>
+                                </div>
+                            ))}
                         </div>
                     </div>
 
                     {/* Right Animation */}
                     <div className="lg:w-1/2 w-full max-w-lg lg:max-w-none order-1 lg:order-2">
-                        <div className="relative">
-                            <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-violet-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-                            <div className="relative bg-white/40 backdrop-blur-md border border-white/60 rounded-[2.5rem] p-6 shadow-2xl backdrop-saturate-150">
+                        <div className="relative transform hover:scale-[1.01] transition-transform duration-500">
+                            <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-violet-500 rounded-[2.6rem] blur-2xl opacity-20 animate-pulse"></div>
+                            <div className="relative bg-white/40 backdrop-blur-lg border border-white/60 rounded-[2.5rem] p-6 shadow-2xl backdrop-saturate-150 ring-1 ring-white/50">
                                 <DotLottieReact
                                     src="https://lottie.host/a8cb6da2-0d1f-43bd-aa91-b2f56f7a311f/lFIvlqHSZE.lottie"
                                     loop
                                     autoplay
-                                    className="w-full h-auto"
+                                    className="w-full h-auto drop-shadow-lg"
                                 />
                                 {/* Floating Badge */}
-                                <div className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-3 animate-bounce shadow-blue-200/50">
-                                    <div className="bg-orange-100 p-3 rounded-xl">
+                                <div className="absolute -bottom-8 -left-4 sm:-left-8 bg-white/95 backdrop-blur-md p-4 pr-6 rounded-2xl shadow-xl border border-slate-100 flex items-center gap-4 animate-bounce-slow shadow-blue-900/5 ring-1 ring-slate-50">
+                                    <div className="bg-orange-100 p-3.5 rounded-xl shadow-inner">
                                         <Sparkles className="h-6 w-6 text-orange-500" />
                                     </div>
                                     <div>
-                                        <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">Top Rated</p>
-                                        <p className="text-slate-900 font-extrabold text-sm">#1 Skill Platform</p>
+                                        <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mb-0.5">Top Rated</p>
+                                        <p className="text-slate-900 font-extrabold text-base">#1 Skill Platform</p>
                                     </div>
                                 </div>
                             </div>
@@ -91,6 +92,15 @@ export default function Hero() {
 
                 </div>
             </div>
+
+            <style jsx>{`
+                .animate-pulse-slow {
+                    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+                }
+                .animate-bounce-slow {
+                    animation: bounce 3s infinite;
+                }
+            `}</style>
         </div >
     );
 }

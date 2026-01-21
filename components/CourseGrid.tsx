@@ -1,6 +1,6 @@
 'use client';
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 import { usePayment } from '@/hooks/usePayment';
 
 export default function CourseGrid() {
@@ -9,7 +9,7 @@ export default function CourseGrid() {
     const courses = [
         {
             title: "Personality Development",
-            price: "$1",
+            price: "$499",
             icon: (
                 <video
                     src="https://cdnl.iconscout.com/lottie/premium/thumb/personality-development-growth-animation-gif-download-11825159.mp4"
@@ -25,7 +25,7 @@ export default function CourseGrid() {
         },
         {
             title: "Computer with AI",
-            price: "$1",
+            price: "$499",
             icon: (
                 <video
                     src="https://cdnl.iconscout.com/lottie/premium/thumb/hand-with-ai-chip-animation-gif-download-11578688.mp4"
@@ -41,7 +41,7 @@ export default function CourseGrid() {
         },
         {
             title: "Coding Basics",
-            price: "$1",
+            price: "$499",
             icon: (
                 <video
                     src="https://cdnl.iconscout.com/lottie/premium/thumb/coding-animation-gif-download-8860652.mp4"
@@ -57,7 +57,7 @@ export default function CourseGrid() {
         },
         {
             title: "Cyber Security",
-            price: "$1",
+            price: "$499",
             icon: (
                 <video
                     src="https://cdnl.iconscout.com/lottie/premium/thumb/cyber-security-animation-gif-download-5553286.mp4"
@@ -73,7 +73,7 @@ export default function CourseGrid() {
         },
         {
             title: "Financial Literacy",
-            price: "$1",
+            price: "$499",
             icon: (
                 <video
                     src="https://cdnl.iconscout.com/lottie/premium/thumb/financial-literacy-animation-gif-download-10720478.mp4"
@@ -93,8 +93,12 @@ export default function CourseGrid() {
         <section className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-4">Individual Mastery Courses</h2>
-                    <p className="text-slate-600">Focus on specific skills with our specialized modules.</p>
+                    <div className="inline-flex items-center justify-center gap-2 mb-2 px-4 py-1.5 bg-yellow-50 rounded-full border border-yellow-100">
+                        <Star className="w-5 h-5 text-yellow-500 fill-yellow-500" />
+                        <span className="text-sm font-bold text-yellow-700 uppercase tracking-wider">Premium Selection</span>
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">Specialisation Classes</h2>
+                    <p className="text-slate-600 text-lg max-w-2xl mx-auto">Focus on specific skills with our specialized high-impact modules designed for rapid learning.</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -118,9 +122,9 @@ export default function CourseGrid() {
                                 </p>
 
                                 <div className="flex items-center justify-between pt-4 mt-auto border-t border-slate-50">
-                                    <span className="text-2xl font-bold text-slate-900">{course.price}</span>
+                                    <span className="text-3xl font-bold text-slate-900">{course.price}</span>
                                     <button
-                                        onClick={() => handlePayment(1, course.title)}
+                                        onClick={() => handlePayment(499, course.title)}
                                         disabled={loading}
                                         className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-blue-200 flex items-center gap-2 disabled:opacity-70 disabled:hover:shadow-none"
                                     >
